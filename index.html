@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<style type="text/css">
+			.anima{-webkit-animation:bounceInDown 3s linear;
+			-o-animation:bounceInDown 3s linear;
+			-moz-animation:bounceInDown 3s linear;
+			-ms-animation:bounceInDown 3s linear;}
+			#Img{width:300px; margin-left:-150px; left:50%; top:10%; position: absolute; background:#red;}
+			#Img img{width:100%;}
+			.none{display:none;}
+			#nav{width:402px; margin:100px auto; position:relative;}
+			#nav>div{float:left;}
+			#nav>div h3,.divarr{float:left;}
+			button{position:absolute; bottom:10px; left:50%; width:200px; margin-left:-100px; cursor:pointer;}
+			h3{background:#F27F02; color:#fff; cursor:pointer; border-right:1px solid #000; width:100px; height:300px; line-height:100px; text-align: center;}
+			h3.active{background:#0000FF; color:yellow;}
+		</style>
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('h3').click(function(){
+					if($(this).parent().children('.divarr').is(':hidden')){	
+						$('h3').removeClass('active')
+						$(this).addClass('active')
+						$("divarr").slideUp()
+						$(this).parent().children('.divarr').slideDown()
+					}else{
+						$(this).parent().children('.divarr').slideUp()
+						$(this).removeClass('active')
+					}
+					if($('#divarr2').is(":visible") && $('#divarr1').is(":visible")){
+						$('button').show();
+					}
+				})
+				$('button').click(function(){
+					$('#Img').addClass('anima');
+					$('#Img').removeClass('none');
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="nav" class="clearfix">
+			<div class="clearfix">
+				<h3>懒</h3>
+				<div class="none divarr" id="divarr1">
+					<img src="images/1.png" alt="" />
+				</div>
+			</div>
+			<div class="clearfix">
+				<div class="none divarr" id="divarr2">
+					<img src="images/2.png" alt="" />
+				</div>
+				<h3>猪</h3>
+			</div>
+			<button class="none">点我会出来猪</button>
+		</div>
+		<div id="Img" class="none">
+			<img src="images/zhu.jpg" />
+		</div>
+	</body>
+</html>
